@@ -1,5 +1,9 @@
 import os
 import numpy as np
+
+import matplotlib
+matplotlib.use('Agg') 
+
 import matplotlib.pyplot as plt
 
 
@@ -151,7 +155,11 @@ def main():
 	
 	plt.ylabel('total reward')
 	plt.xlabel('trace index')
-	plt.show()
+	
+	figx = plt.gcf() 
+	figx.savefig('fig0.png')
+
+	#plt.show()
 
 	# ---- ---- ---- ----
 	# CDF 
@@ -173,7 +181,11 @@ def main():
 	
 	plt.ylabel('CDF')
 	plt.xlabel('total reward')
-	plt.show()
+	
+	figx = plt.gcf() 
+	figx.savefig('fig1.png')
+	
+	#plt.show()
 
 
 	# ---- ---- ---- ----
@@ -220,7 +232,11 @@ def main():
 				SCHEMES_REW.append(scheme + ': ' + str(np.sum(raw_reward_all[scheme][l][1:VIDEO_LEN])))
 
 			ax.legend(SCHEMES_REW, loc=9, bbox_to_anchor=(0.5, -0.1), ncol=int(np.ceil(len(SCHEMES) / 2.0)))
-			plt.show()
+			
+			figx = plt.gcf() 
+			figx.savefig('fig2.png')
+	
+			#plt.show()
 
 
 if __name__ == '__main__':
