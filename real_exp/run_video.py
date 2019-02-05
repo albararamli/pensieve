@@ -73,7 +73,8 @@ try:
 	
 	# run chrome
 	driver.set_page_load_timeout(10)
-	driver.get(url)
+	#driver.get(url)
+	driver.get("http://"+url.rstrip())
 	
 	sleep(run_time)
 	
