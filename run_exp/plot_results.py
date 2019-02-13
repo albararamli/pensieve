@@ -128,7 +128,9 @@ def main():
 	
 	plt.ylabel('total reward')
 	plt.xlabel('trace index')
-	plt.show()
+	#plt.show()
+	figx = plt.gcf() 
+	figx.savefig('fig0.png')
 
 	# ---- ---- ---- ----
 	# CDF 
@@ -150,7 +152,9 @@ def main():
 	
 	plt.ylabel('CDF')
 	plt.xlabel('total reward')
-	plt.show()
+	#plt.show()
+	figx = plt.gcf() 
+	figx.savefig('fig1.png')
 
 
 	# ---- ---- ---- ----
@@ -200,7 +204,9 @@ def main():
 					SCHEMES_REW.append(scheme + ': ' + str(np.sum(raw_reward_all[scheme][l][1:VIDEO_LEN])))
 
 			ax.legend(SCHEMES_REW, loc=9, bbox_to_anchor=(0.5, -0.1), ncol=int(np.ceil(len(SCHEMES) / 2.0)))
-			plt.show()
+			#plt.show()
+			figx = plt.gcf() 
+			figx.savefig('fig2.png')
 
 
 if __name__ == '__main__':
