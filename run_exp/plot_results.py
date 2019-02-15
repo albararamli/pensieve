@@ -21,7 +21,7 @@ def main():
 	buff_all = {}
 	bw_all = {}
 	raw_reward_all = {}
-
+	orderx=0
 	for scheme in SCHEMES:
 		time_all[scheme] = {}
 		raw_reward_all[scheme] = {}
@@ -141,7 +141,8 @@ def main():
 	plt.xlabel('trace index')
 	#plt.show()
 	figx = plt.gcf() 
-	figx.savefig('fig0.png')
+	figx.savefig('fig/' + str(orderx) + '_fig0.png')
+	orderx=orderx+1
 
 	# ---- ---- ---- ----
 	# CDF 
@@ -165,7 +166,8 @@ def main():
 	plt.xlabel('total reward')
 	#plt.show()
 	figx = plt.gcf() 
-	figx.savefig('fig1.png')
+	figx.savefig('fig/' + str(orderx) + '_fig1.png')
+	orderx=orderx+1
 
 
 	# ---- ---- ---- ----
@@ -217,8 +219,8 @@ def main():
 			ax.legend(SCHEMES_REW, loc=9, bbox_to_anchor=(0.5, -0.1), ncol=int(np.ceil(len(SCHEMES) / 2.0)))
 			#plt.show()
 			figx = plt.gcf() 
-			figx.savefig('fig2.png')
-
-
+			figx.savefig('fig/' + str(orderx) + '_fig2_' + l + '.png')
+			orderx=orderx+1
+	
 if __name__ == '__main__':
 	main()
