@@ -70,7 +70,9 @@ def main():
 			bw = bw[::-1]
 		
 		time_ms = np.array(time_ms)
-		time_ms -= time_ms[0]
+		
+		if(len(time_msshape)>1):
+			time_ms -= time_ms[0]
 		
 		# print log_file
 
