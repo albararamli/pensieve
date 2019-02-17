@@ -28,6 +28,7 @@ def main():
 	buff_all = {}
 	bw_all = {}
 	raw_reward_all = {}
+	orderx=0
 
 	for scheme in SCHEMES:
 		time_all[scheme] = {}
@@ -155,12 +156,12 @@ def main():
 	
 	plt.ylabel('total reward')
 	plt.xlabel('trace index')
-	
-	figx = plt.gcf() 
-	figx.savefig('fig0.png')
-
 	#plt.show()
 
+	figx = plt.gcf() 
+	figx.savefig('fig/' + str(orderx) + '_fig0.png')
+	orderx=orderx+1
+	
 	# ---- ---- ---- ----
 	# CDF 
 	# ---- ---- ---- ----
@@ -181,12 +182,11 @@ def main():
 	
 	plt.ylabel('CDF')
 	plt.xlabel('total reward')
-	
-	figx = plt.gcf() 
-	figx.savefig('fig1.png')
-	
 	#plt.show()
 
+	figx = plt.gcf() 
+	figx.savefig('fig/' + str(orderx) + '_fig1.png')
+	orderx=orderx+1
 
 	# ---- ---- ---- ----
 	# check each trace
@@ -232,11 +232,11 @@ def main():
 				SCHEMES_REW.append(scheme + ': ' + str(np.sum(raw_reward_all[scheme][l][1:VIDEO_LEN])))
 
 			ax.legend(SCHEMES_REW, loc=9, bbox_to_anchor=(0.5, -0.1), ncol=int(np.ceil(len(SCHEMES) / 2.0)))
+			#plt.show()
 			
 			figx = plt.gcf() 
-			figx.savefig('fig2.png')
-	
-			#plt.show()
+			figx.savefig('fig/' + str(orderx) + '_fig2_' + l + '.png')
+			orderx=orderx+1
 
 
 if __name__ == '__main__':
