@@ -71,7 +71,7 @@ def main():
 		
 		time_ms = np.array(time_ms)
 		
-		if(len(time_msshape)>1):
+		if(len(time_ms.shape)>1):
 			time_ms -= time_ms[0]
 		
 		# print log_file
@@ -98,17 +98,14 @@ def main():
 		schemes_check = True
 		for scheme in SCHEMES:
 
-   	 	if l not in time_all[scheme]:
-   			 schemes_check = False    
-   			 break   	 
-   		 else:
-   			 if len(time_all[scheme][l]) < VIDEO_LEN:
-   				 schemes_check = False
-   				 break	
+   	 		if l not in time_all[scheme]:
+				 schemes_check = False    
+				 break   	 
+			else:
+				if len(time_all[scheme][l]) < VIDEO_LEN:
+   					schemes_check = False
+   					break	
 					
-#			if l not in time_all[scheme] or len(time_all[scheme][l]) < VIDEO_LEN:
-#				schemes_check = False
-#				break
 		if schemes_check:
 			log_file_all.append(l)
 			for scheme in SCHEMES:
