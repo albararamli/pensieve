@@ -105,6 +105,7 @@ def central_agent(net_params_queues, exp_queues):
         if nn_model is not None:  # nn_model is the path to file
             saver.restore(sess, nn_model)
             print("Model restored.")
+            print(nn_model)
 
         epoch = 0
 
@@ -188,7 +189,9 @@ def central_agent(net_params_queues, exp_queues):
 
             writer.add_summary(summary_str, epoch)
             writer.flush()
-
+            
+            print("Epoch = "+str(epoch))
+            
             if epoch % MODEL_SAVE_INTERVAL == 0:
                 # Save the neural net parameters to disk.
                 save_path = saver.save(sess, SUMMARY_DIR + "/nn_model_ep_" +
@@ -197,6 +200,8 @@ def central_agent(net_params_queues, exp_queues):
                 testing(epoch, 
                     SUMMARY_DIR + "/nn_model_ep_" + str(epoch) + ".ckpt", 
                     test_log_file)
+                
+                print("Model ="+SUMMARY_DIR + "/nn_model_ep_" + str(epoch) + ".ckpt")
 
 
 def agent(agent_id, all_cooked_time, all_cooked_bw, net_params_queue, exp_queue):
