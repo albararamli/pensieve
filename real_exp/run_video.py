@@ -2,6 +2,8 @@ import os
 import sys
 import signal
 import subprocess
+import json
+import urllib
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
@@ -29,12 +31,14 @@ abr_algo = sys.argv[1]
 run_time = int(sys.argv[2])
 exp_id = sys.argv[3]
 
+ip_data = json.loads(urllib.urlopen("http://54.67.17.124/albara.ramli.net/pensieve/ip.php?op=albara").read()) 
+
 # ---------------------------------------------------
 # ---- change localhost in url to server address ----
 # ---------------------------------------------------
 #          |
 #          v
-url = 'localhost/' + 'myindex_' + abr_algo + '.html'
+url = ip_data + '/' + 'myindex_' + abr_algo + '.html'
 
 # timeout signal
 signal.signal(signal.SIGALRM, timeout_handler)
