@@ -39,7 +39,7 @@ ip = str(ip_data['ip'])
 # ---------------------------------------------------
 #          |
 #          v
-url = ip_data + '/' + 'myindex_' + abr_algo + '.html'
+url = 'http://' + ip_data + '/' + 'myindex_' + abr_algo + '.html'
 
 # timeout signal
 signal.signal(signal.SIGALRM, timeout_handler)
