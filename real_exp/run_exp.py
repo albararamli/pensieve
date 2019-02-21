@@ -6,7 +6,7 @@ import numpy as np
 
 RUN_SCRIPT = 'run_video.py'
 RANDOM_SEED = 42
-RUN_TIME = 10 #280  # sec
+RUN_TIME = 280  # sec
 ABR_ALGO = ['fastMPC', 'robustMPC', 'BOLA', 'RL']
 REPEAT_TIME = 10
 
