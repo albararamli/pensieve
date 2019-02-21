@@ -35,7 +35,7 @@ def main():
 
 					(out, err) = proc.communicate()
 
-					if out == 'done\n':
+					if out == 'done\n' or out == 'timeout\n':
 						break
 					else:
 						log.write(abr_algo + '_' + str(rt) + '\n')
