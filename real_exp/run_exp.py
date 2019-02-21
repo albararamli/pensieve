@@ -27,14 +27,15 @@ def main():
 
 					script = 'python ' + RUN_SCRIPT + ' ' + \
 							  abr_algo + ' ' + str(RUN_TIME) + ' ' + str(rt)
-					
+					print(script)
 					proc = subprocess.Popen(script,
 							  stdout=subprocess.PIPE, 
 							  stderr=subprocess.PIPE, 
 							  shell=True)
 
 					(out, err) = proc.communicate()
-
+					print(out)
+					print(err)
 					if out == 'done\n' or out == 'timeout\n':
 						break
 					else:
