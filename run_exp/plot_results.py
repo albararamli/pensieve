@@ -213,7 +213,7 @@ def main():
 				else:
 					SCHEMES_REW.append(scheme + ': ' + str( round(np.sum(raw_reward_all[scheme][l][1:VIDEO_LEN]),2) ))
 
-			ax.legend(SCHEMES_REW, loc=9, bbox_to_anchor=(0.5, -0.1), ncol=int(np.ceil(len(SCHEMES) / 2.0)))
+			ax.legend(SCHEMES_REW, loc=9, bbox_to_anchor=(0.5, 0.0), ncol=int(np.ceil(len(SCHEMES) / 2.0)))
 			#plt.show()
 			figx = plt.gcf() 
 			figx.savefig('fig/' + str(orderx) + '_fig2_' + l + '.png')
