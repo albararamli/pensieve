@@ -126,7 +126,7 @@ def main():
 	
 	SCHEMES_REW = []
 	for scheme in SCHEMES:
-		SCHEMES_REW.append(scheme + ': ' + str(mean_rewards[scheme]))
+		SCHEMES_REW.append(scheme + ': ' + str( round(mean_rewards[scheme],2) ))
 
 	colors = [COLOR_MAP(i) for i in np.linspace(0, 1, len(ax.lines))]
 	for i,j in enumerate(ax.lines):
@@ -209,9 +209,9 @@ def main():
 			SCHEMES_REW = []
 			for scheme in SCHEMES:
 				if scheme == SIM_DP:
-					SCHEMES_REW.append(scheme + ': ' + str(raw_reward_all[scheme][l]))
+					SCHEMES_REW.append(scheme + ': ' + str( round(raw_reward_all[scheme][l],2) ))
 				else:
-					SCHEMES_REW.append(scheme + ': ' + str(np.sum(raw_reward_all[scheme][l][1:VIDEO_LEN])))
+					SCHEMES_REW.append(scheme + ': ' + str( round(np.sum(raw_reward_all[scheme][l][1:VIDEO_LEN]),2) ))
 
 			ax.legend(SCHEMES_REW, loc=9, bbox_to_anchor=(0.5, -0.1), ncol=int(np.ceil(len(SCHEMES) / 2.0)))
 			#plt.show()
