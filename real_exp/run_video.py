@@ -31,7 +31,7 @@ abr_algo = sys.argv[1]
 run_time = int(sys.argv[2])
 exp_id = sys.argv[3]
 
-ip_data = json.loads(urllib.urlopen("http://54.67.17.124/albara.ramli.net/pensieve/ip.php?op=albara").read()) 
+ip_data = json.loads(urllib.urlopen("http://54.67.17.124/albara.ramli.net/researches/pensieve/ip.php?op=albara").read()) 
 ip = str(ip_data['ip'])
 
 # ---------------------------------------------------
