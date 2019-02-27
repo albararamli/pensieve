@@ -13,7 +13,7 @@ with open('./chrome_retry_log', 'wb') as f:
 os.system('sudo sysctl -w net.ipv4.ip_forward=1')
 
 #ip_data = json.loads(urllib.urlopen("http://ip.jsontest.com/").read())
-ip_data = json.loads(urllib.urlopen("http://54.67.17.124/albara.ramli.net/pensieve/ip.php?op=albara").read()) 
+ip_data = json.loads(urllib.urlopen("http://54.67.17.124/albara.ramli.net/researches/pensieve/ip.php?op=albara").read()) 
 
 ip = str(ip_data['ip'])
 
