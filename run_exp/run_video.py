@@ -75,7 +75,7 @@ try:
 	driver=webdriver.Chrome(chrome_driver, chrome_options=options)
 	
 	# run chrome
-	driver.set_page_load_timeout(10)
+	driver.set_page_load_timeout(100)
 	driver.get(url)
 	
 	sleep(run_time)
