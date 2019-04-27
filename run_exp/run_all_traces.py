@@ -17,6 +17,7 @@ os.system('sudo sysctl -w net.ipv4.ip_forward=1')
 #ip = str(ip_data['ip'])
 fff=open("../../ip.txt","r")
 ip=fff.read()
+ip=ip.rstrip()
 
 ABR_ALGO = 'BB'
 PROCESS_ID = 0
