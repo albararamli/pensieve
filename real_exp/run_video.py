@@ -31,15 +31,18 @@ abr_algo = sys.argv[1]
 run_time = int(sys.argv[2])
 exp_id = sys.argv[3]
 
-ip_data = json.loads(urllib.urlopen("http://54.67.17.124/albara.ramli.net/researches/pensieve/ip.php?op=albara").read()) 
-ip = str(ip_data['ip'])
+'''ip_data = json.loads(urllib.urlopen("http://54.67.17.124/albara.ramli.net/researches/pensieve/ip.php?op=albara").read()) 
+ip = str(ip_data['ip'])'''
+fff=open("../../ip.txt","r")
+ip=fff.read()
+ip=ip.rstrip()
 
 # ---------------------------------------------------
 # ---- change localhost in url to server address ----
 # ---------------------------------------------------
 #          |
 #          v
-url = ip + '/' + 'myindex_' + abr_algo + '.html'
+url = 'http://' + ip + '/' + 'myindex_' + abr_algo + '.html'
 
 # timeout signal
 signal.signal(signal.SIGALRM, timeout_handler)
@@ -66,7 +69,7 @@ try:
 	sleep(2)
 	
 	# to not display the page in browser
-	display = Display(visible=0, size=(800,600))
+	display = Display(visible=1, size=(800,600))
 	display.start()
 	
 	# initialize chrome driver
@@ -78,9 +81,9 @@ try:
 	driver=webdriver.Chrome(chrome_driver, chrome_options=options)
 	
 	# run chrome
-	driver.set_page_load_timeout(10)
+	driver.set_page_load_timeout(100)
 	#driver.get(url)
-	driver.get("http://"+url.rstrip())
+	driver.get(url.rstrip())
 	
 	sleep(run_time)
 	
