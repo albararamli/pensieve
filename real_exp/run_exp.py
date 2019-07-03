@@ -7,7 +7,7 @@ import numpy as np
 RUN_SCRIPT = 'run_video.py'
 RANDOM_SEED = 42
 RUN_TIME = 280  # sec
-ABR_ALGO = ['BB'] #'fastMPC', 'robustMPC', 'BOLA', 'RL']
+ABR_ALGO = ['BB']#,'fastMPC', 'robustMPC', 'BOLA', 'RL']
 REPEAT_TIME = 10
 
 
@@ -36,7 +36,7 @@ def main():
 					(out, err) = proc.communicate()
 					print(out)
 					print(err)
-					if out == 'done\n' or out == 'timeout\n':
+					if out == 'done\n' or out == 'timeout\n' or out == 'HTTP Error 400: Bad Request\n':
 						break
 					else:
 						log.write(abr_algo + '_' + str(rt) + '\n')
