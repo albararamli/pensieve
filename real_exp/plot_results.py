@@ -8,13 +8,29 @@ NUM_BINS = 100
 BITS_IN_BYTE = 8.0
 MILLISEC_IN_SEC = 1000.0
 M_IN_B = 1000000.0
-VIDEO_LEN = 48 #64 # this number should refluct the number of lines in the log files inside ./results/
+VIDEO_LEN = 48 #48 #64 # this number should refluct the number of lines in the log files inside ./results/
+
+
 VIDEO_BIT_RATE = [350, 600, 1000, 2000, 3000]
 COLOR_MAP = plt.cm.jet #nipy_spectral, Set1,Paired 
 SIM_DP = 'sim_dp'
-SCHEMES = ['fastMPC', 'robustMPC', 'BOLA', 'RL'] #['BB', 'RB', 'FIXED', 'FESTIVE', 'BOLA', 'RL',  'sim_rl', SIM_DP] # sugg by albara: 'fastMPC','robustMPC'
-
-
+SCHEMES = [ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
+#['BB','fastMPC', 'robustMPC', 'BOLA', 'RL'] 
+#['BB','fastMPC', 'robustMPC', 'BOLA', 'RL', 'RB', 'FIXED', 'FESTIVE', 'sim_rl', SIM_DP] 
+###############
+min=999
+log_files = os.listdir(RESULTS_FOLDER)
+for log_file in log_files:
+        num_lines=0
+	for line in open(RESULTS_FOLDER+log_file):
+		if len(line)>1:
+			num_lines = num_lines +1
+	print(log_file+"="+str(num_lines))
+	if num_lines<min:
+		min=num_lines
+VIDEO_LEN=min
+###############
+print("VIDEO_LEN="+str(VIDEO_LEN)+" rows")
 def main():
 	time_all = {}
 	bit_rate_all = {}
