@@ -25,12 +25,12 @@ for log_file in log_files:
 	for line in open(RESULTS_FOLDER+log_file):
 		if len(line)>1:
 			num_lines = num_lines +1
-	print(log_file+"="+str(num_lines))
+	print(log_file+"="+str(num_lines)+" rows")
 	if num_lines<min:
 		min=num_lines
 VIDEO_LEN=min
 ###############
-print("VIDEO_LEN="+str(VIDEO_LEN)+" rows")
+print("------------------\nVIDEO_LEN="+str(VIDEO_LEN)+" rows\n-----------------")
 def main():
 	time_all = {}
 	bit_rate_all = {}
