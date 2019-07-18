@@ -14,7 +14,7 @@ VIDEO_LEN = 48 #48 #64 # this number should refluct the number of lines in the l
 VIDEO_BIT_RATE = [350, 600, 1000, 2000, 3000]
 COLOR_MAP = plt.cm.jet #nipy_spectral, Set1,Paired 
 SIM_DP = 'sim_dp'
-SCHEMES =  ['RL'] #[ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
+SCHEMES =  [ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
 #['BB','fastMPC', 'robustMPC', 'BOLA', 'RL'] 
 #['BB','fastMPC', 'robustMPC', 'BOLA', 'RL', 'RB', 'FIXED', 'FESTIVE', 'sim_rl', SIM_DP] 
 ###############
