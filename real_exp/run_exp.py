@@ -8,10 +8,10 @@ from time import sleep
 
 RUN_SCRIPT = 'run_video.py'
 RANDOM_SEED = 42
-RUN_TIME = 280 #280  # sec
-ABR_ALGO = [ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
+RUN_TIME = 210 #280  # sec
+ABR_ALGO = [ 'RL','robustMPC']#[ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
 #  [ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
-REPEAT_TIME = 10
+REPEAT_TIME = 1
 
 
 def main():
@@ -48,7 +48,7 @@ def main():
 					(out, err) = proc.communicate()
 					print(out)
 					print(err)
-					if out == 'done\n' or out == 'timeout\n' or out == 'HTTP Error 400: Bad Request\n':
+					if out == 'done\n' or out == 'timeout\n' or out == 'HTTP Error 400: Bad Request\n' or out == 'Timeout\n':
 						break
 					else:
 						log.write(abr_algo + '_' + str(rt) + '\n')
