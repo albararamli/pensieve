@@ -14,11 +14,11 @@ VIDEO_LEN = 48 #48 #64 # this number should refluct the number of lines in the l
 VIDEO_BIT_RATE = [350, 600, 1000, 2000, 3000]
 COLOR_MAP = plt.cm.jet #nipy_spectral, Set1,Paired 
 SIM_DP = 'sim_dp'
-SCHEMES =  ['RL','robustMPC'] #[ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
+SCHEMES =  ['robustMPC', 'RL']#,'BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
 #['BB','fastMPC', 'robustMPC', 'BOLA', 'RL'] 
 #['BB','fastMPC', 'robustMPC', 'BOLA', 'RL', 'RB', 'FIXED', 'FESTIVE', 'sim_rl', SIM_DP] 
 ###############
-min=999
+
 log_files = os.listdir(RESULTS_FOLDER)
 for log_file in log_files:
         num_lines=0
@@ -30,6 +30,7 @@ for log_file in log_files:
 		min=num_lines
 if min<VIDEO_LEN:
     VIDEO_LEN=min
+#VIDEO_LEN=49
 ###############
 print("------------------\nVIDEO_LEN="+str(VIDEO_LEN)+" rows\n-----------------")
 def main():

@@ -8,7 +8,7 @@ from time import sleep
 
 RUN_SCRIPT = 'run_video.py'
 RANDOM_SEED = 42
-RUN_TIME = 210 #280  # sec
+RUN_TIME = 480 #280  # sec
 ABR_ALGO = [ 'RL','robustMPC']#[ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
 #  [ 'RL','BB','FIXED','robustMPC', 'fastMPC', 'BOLA',  'FESTIVE','RB']
 REPEAT_TIME = 1
@@ -31,9 +31,12 @@ def main():
 					current_path=os.getcwd()
 					new_path="../../pantheon/"
 					os.chdir(new_path)
+					os.system("mkdir ./data/")
+					os.system("mkdir ./logx/")
+					os.system("echo "+ abr_algo + str(rt) +"> logx/now.txt") 
 					os.system("touch ./data/DONE.txt")
 					time.sleep(6)
-					ttt='"python third_party/indigo/env/proxy.py 9999 LINUX;exit;exec bash"'
+					ttt='"python third_party/indigo/env/proxy.py 9999 INDIGO;exit;exec bash"'
 					os.system("gnome-terminal -e 'sh -c "+ttt+"'")
 					os.chdir(current_path)
 					##################################
